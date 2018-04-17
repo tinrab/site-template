@@ -20,6 +20,7 @@ module.exports = (boundActionCreators, node, getNode) => {
 
     // Date
     const date = path.substr('articles/'.length, '0000-00-00'.length);
+    createNodeField({ node, name: 'date', value: date });
 
     // Slug
     slug = path.substring('articles/0000-00-00-'.length, path.lastIndexOf('/'));
@@ -28,7 +29,7 @@ module.exports = (boundActionCreators, node, getNode) => {
     const author = authors[node.frontmatter.author];
     author.slug = node.frontmatter.author;
     author.emailHash = md5(author.email.toLowerCase());
-    createNodeField({ node, name: 'authorData', value: author });
+    createNodeField({ node, name: 'author', value: author });
 
     // Tags
     const tags = node.frontmatter.tags

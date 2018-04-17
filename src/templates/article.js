@@ -8,7 +8,6 @@ export default ({ data }) => {
   };
   return (
     <div>
-      <h1>{data.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: data.html }} />
     </div>
   );
@@ -20,12 +19,20 @@ export const query = graphql`
       frontmatter {
         title
         description
+        cover {
+          childImageSharp {
+            original {
+              src
+            }
+          }
+        }
       }
       tableOfContents
       html
       fields {
         slug
-        authorData {
+        date(formatString: "DD MMMM, YYYY")
+        author {
           name
           email
           bio
@@ -47,7 +54,7 @@ export const query = graphql`
       siteMetadata {
         title
         description
-        baseUrl
+        siteUrl
       }
     }
   }

@@ -7,6 +7,7 @@ tags:
   - Game Development
   - Go
 description: ...
+cover: ./cover.jpg
 ---
 
 Ut non sequi velit praesentium aut porro. Molestiae at voluptas sunt praesentium. Neque omnis est et consequuntur harum. Minima architecto eligendi.

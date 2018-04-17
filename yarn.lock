@@ -2,12 +2,6 @@
 # yarn lockfile v1
 
 
-"@jacobmischka/gatsby-plugin-react-svg@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@jacobmischka/gatsby-plugin-react-svg/-/gatsby-plugin-react-svg-1.1.0.tgz#29e57ad0ed936d28b0c1a5f5f6a7a09bbbc158d4"
-  dependencies:
-    svg-react-loader "^0.4.4"
-
 "@types/configstore@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@types/configstore/-/configstore-2.1.1.tgz#cd1e8553633ad3185c3f2f239ecff5d2643e92b6"
@@ -3894,6 +3888,12 @@ gatsby-plugin-react-helmet@^2.0.10:
   dependencies:
     babel-runtime "^6.26.0"
 
+gatsby-plugin-react-svg@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-svg/-/gatsby-plugin-react-svg-1.1.1.tgz#d1588b54254a4863d60de0ae2f67f50d43cb8e58"
+  dependencies:
+    svg-react-loader "^0.4.4"
+
 gatsby-plugin-sass@^1.0.25:
   version "1.0.25"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-1.0.25.tgz#81f756e149d86f921d43d703b9bd6a35dc51288f"
@@ -3937,6 +3937,19 @@ gatsby-react-router-scroll@^1.0.14:
     babel-runtime "^6.26.0"
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
+
+gatsby-remark-copy-linked-files@^1.5.31:
+  version "1.5.31"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-1.5.31.tgz#c24449c7597a37fecffab9fbc060c77eca19cc32"
+  dependencies:
+    babel-runtime "^6.26.0"
+    cheerio "^1.0.0-rc.2"
+    fs-extra "^4.0.1"
+    is-relative-url "^2.0.0"
+    lodash "^4.17.4"
+    path-is-inside "^1.0.2"
+    probe-image-size "^3.2.0"
+    unist-util-visit "^1.1.1"
 
 gatsby-remark-images@^1.5.61:
   version "1.5.61"
@@ -7245,7 +7258,7 @@ path-is-absolute@^1.0.0, path-is-absolute@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
-path-is-inside@1.0.2, path-is-inside@^1.0.1:
+path-is-inside@1.0.2, path-is-inside@^1.0.1, path-is-inside@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/path-is-inside/-/path-is-inside-1.0.2.tgz#365417dede44430d1c11af61027facf074bdfc53"
 

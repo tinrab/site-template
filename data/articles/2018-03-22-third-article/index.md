@@ -6,6 +6,7 @@ tags:
   - Elasticsearch
   - Docker
 description: ...
+cover: ./cover.jpg
 ---
 
 Quae sit qui. Doloribus magni qui beatae et omnis provident. Cum quisquam assumenda mollitia nulla ullam omnis minima voluptatem pariatur.

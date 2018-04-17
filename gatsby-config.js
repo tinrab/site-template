@@ -4,6 +4,13 @@ const remark = {
   resolve: 'gatsby-transformer-remark',
   options: {
     plugins: [
+      /*
+      {
+        resolve: 'gatsby-remark-copy-linked-files',
+        options: {
+          destinationDir: './',
+        },
+      },*/
       {
         resolve: 'gatsby-remark-images',
         options: {
@@ -23,7 +30,6 @@ const remark = {
 };
 
 const plugins = [
-  'gatsby-plugin-sass',
   {
     resolve: 'gatsby-source-filesystem',
     options: {
@@ -31,6 +37,8 @@ const plugins = [
       path: path.resolve('./data/'),
     },
   },
+  'gatsby-plugin-sass',
+  'gatsby-plugin-react-svg',
   'gatsby-plugin-react-helmet',
   'gatsby-transformer-sharp',
   'gatsby-plugin-catch-links',
@@ -42,10 +50,11 @@ module.exports = {
   siteMetadata: {
     title: 'Site Template',
     description: '',
-    baseUrl:
+    siteUrl:
       process.env.NODE_ENV == 'production'
         ? 'https://example.com'
         : 'http://localhost:3000',
+    articlesPerPage: 6,
   },
   plugins,
 };

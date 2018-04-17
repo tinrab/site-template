@@ -1,7 +1,10 @@
 const path = require('path');
 
-module.exports = (graphql, boundActionCreators) => {
-  const { createPage } = boundActionCreators;
+module.exports = (params) => {
+  const {
+    graphql,
+    boundActionCreators: { createPage },
+  } = params;
   const articleTemplate = path.resolve(`./src/templates/article.js`);
   const pageTemplate = path.resolve(`./src/templates/page.js`);
 
