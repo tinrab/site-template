@@ -1,0 +1,23 @@
+{
+  "name": "site-template",
+  "version": "1.0.0",
+  "author": "tinrab <tin.rabzelj@gmail.com>",
+  "dependencies": {
+    "gatsby": "^1.9.251",
+    "gatsby-link": "^1.6.40",
+    "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-plugin-sass": "^1.0.25",
+    "react-helmet": "^5.2.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop -p 3000",
+    "build": "gatsby build",
+    "format": "prettier --write 'src/**/*.{js,scss}'",
+    "clean": "del-cli .cache public"
+  },
+  "devDependencies": {
+    "del-cli": "^1.1.0",
+    "prettier": "^1.12.1"
+  }
+}
