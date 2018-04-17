@@ -12,6 +12,12 @@ module.exports = (boundActionCreators, node, getNode) => {
   if (path.startsWith('articles')) {
     createNodeField({ node, name: 'type', value: 'article' });
 
+    // Insert cover image
+    const md = node.internal.content;
+    const fm = md.indexOf('---', 3) + 3;
+    node.internal.content =
+      md.substr(0, fm) + '![](./cover.jpg)' + md.substr(fm);
+
     // Date
     const date = path.substr('articles/'.length, '0000-00-00'.length);
 
