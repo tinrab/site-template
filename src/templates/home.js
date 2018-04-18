@@ -1,18 +1,13 @@
 import React from 'react';
 
 import HomePage from '../components/home-page';
+import { getMeta, getArticles } from '../utils/query';
 
 export default ({
   data,
   pathContext: { page, articlesPerPage, totalArticles },
 }) => {
-  const siteMeta = data.site.siteMetadata;
-  const articles = data.allMarkdownRemark.edges.map(({ node: article }) => ({
-    ...article.frontmatter,
-    ...article.fields,
-    coverUrl:
-      siteMeta.siteUrl + article.frontmatter.cover.childImageSharp.original.src,
-  }));
+  const articles = getArticles(getMeta(data), data);
   return (
     <HomePage
       articles={articles}
@@ -52,6 +47,7 @@ export const query = graphql`
             author {
               name
               email
+              emailHash
               bio
               social {
                 twitter
@@ -59,7 +55,6 @@ export const query = graphql`
                 facebook
                 googlePlus
               }
-              emailHash
             }
             tags {
               slug

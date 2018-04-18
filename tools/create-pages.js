@@ -6,7 +6,7 @@ module.exports = (params) => {
     boundActionCreators: { createPage },
   } = params;
   const articleTemplate = path.resolve(`./src/templates/article.js`);
-  const pageTemplate = path.resolve(`./src/templates/page.js`);
+  const pageTemplate = path.resolve(`./src/templates/general.js`);
 
   return new Promise((resolve, reject) => {
     graphql(`
@@ -24,6 +24,10 @@ module.exports = (params) => {
       }
     `)
       .then((result) => {
+        if (result.errors) {
+          return reject(result.errors);
+        }
+
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
           createPage({
             path: node.fields.slug,
@@ -32,7 +36,7 @@ module.exports = (params) => {
             context: { slug: node.fields.slug },
           });
         });
-        resolve();
+        return resolve();
       })
       .catch(reject);
   });

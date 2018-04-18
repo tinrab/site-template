@@ -1,17 +1,11 @@
 import React from 'react';
 
+import { getGeneralPage } from '../utils/query';
+import GeneralPage from '../components/general-page';
+
 export default ({ data }) => {
-  data = {
-    ...data.markdownRemark,
-    ...data.markdownRemark.frontmatter,
-    ...data.markdownRemark.fields,
-  };
-  return (
-    <div>
-      <h1>{data.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.html }} />
-    </div>
-  );
+  const page = getGeneralPage(data);
+  return <GeneralPage page={page} />;
 };
 
 export const query = graphql`

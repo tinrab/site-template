@@ -19,7 +19,6 @@ module.exports = (params) => {
           filter: { fields: { type: { eq: "article" } } }
           sort: { fields: [fields___date], order: DESC }
         ) {
-          totalCount
           edges {
             node {
               id
@@ -29,20 +28,29 @@ module.exports = (params) => {
       }
     `)
       .then((result) => {
+        if (result.errors) {
+          return reject(result.errors);
+        }
+
         const {
-          allMarkdownRemark: articles,
-          site: { siteMetadata: { articlesPerPage } },
+          allMarkdownRemark: { edges: articles },
+          site: {
+            siteMetadata: { articlesPerPage },
+          },
         } = result.data;
 
-        let page = 1;
-        for (let i = 0; i < articles.totalCount; i += articlesPerPage, page++) {
+        for (
+          let i = 0, page = 1;
+          i < articles.length;
+          i += articlesPerPage, page++
+        ) {
           createPage({
             path: page == 1 ? '/' : `/page/${page}`,
             component: homeTemplate,
             context: {
               page,
               articlesPerPage,
-              totalArticles: articles.totalCount,
+              totalArticles: articles.length,
               // For GraphQL
               skip: i,
               take: articlesPerPage,
@@ -50,7 +58,7 @@ module.exports = (params) => {
           });
         }
 
-        resolve();
+        return resolve();
       })
       .catch(reject);
   });

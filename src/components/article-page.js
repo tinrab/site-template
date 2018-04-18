@@ -56,7 +56,7 @@ const ArticleFooter = ({ article }) => (
   <div className="page__meta">
     <div className="page__tags">
       {article.tags.map((tag) => (
-        <Link className="page__tag" key={tag.slug}>
+        <Link className="page__tag" key={tag.slug} to={`/tags/${tag.slug}`}>
           {tag.name}
         </Link>
       ))}
@@ -90,7 +90,7 @@ const ArticleFooter = ({ article }) => (
 
 const ArticlePage = ({ article }) => (
   <div className="page page--narrow">
-    <h1>{article.title}</h1>
+    <h1 className="page__title">{article.title}</h1>
     <ArticleHeader article={article} />
     <span dangerouslySetInnerHTML={{ __html: article.html }} />
     <ArticleFooter article={article} />

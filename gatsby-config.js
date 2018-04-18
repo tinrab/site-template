@@ -54,7 +54,7 @@ module.exports = {
       process.env.NODE_ENV == 'production'
         ? 'https://example.com'
         : 'http://localhost:3000',
-    articlesPerPage: 4,
+    articlesPerPage: 3,
   },
   plugins,
 };

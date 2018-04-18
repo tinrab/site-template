@@ -7,17 +7,17 @@
     max-width: 720px;
   }
 
+  &__title {
+    @extend .display-4;
+    margin-top: 0;
+  }
+
   &__entries {
     @extend .row;
   }
 
   &__pagination {
     @extend .pt-3;
-  }
-
-  h1 {
-    @extend .display-4;
-    margin-top: 0;
   }
 
   &__image {
