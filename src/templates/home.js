@@ -1,13 +1,13 @@
 import React from 'react';
 
 import HomePage from '../components/home-page';
-import { getMeta, getArticles } from '../utils/query';
+import { getArticles } from '../utils/query';
 
 export default ({
   data,
   pathContext: { page, articlesPerPage, totalArticles },
 }) => {
-  const articles = getArticles(getMeta(data), data);
+  const articles = getArticles(data);
   return (
     <HomePage
       articles={articles}
@@ -46,15 +46,8 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
             author {
               name
-              email
+              slug
               emailHash
-              bio
-              social {
-                twitter
-                github
-                facebook
-                googlePlus
-              }
             }
             tags {
               slug

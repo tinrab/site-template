@@ -23,7 +23,8 @@
     "md5": "^2.2.1",
     "prismjs": "^1.14.0",
     "react-helmet": "^5.2.0",
-    "slug": "^0.9.1"
+    "slug": "^0.9.1",
+    "stats-webpack-plugin": "^0.6.2"
   },
   "license": "MIT",
   "scripts": {

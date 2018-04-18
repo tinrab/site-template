@@ -1,13 +1,13 @@
 import React from 'react';
 
 import TagPage from '../components/tag-page';
-import { getMeta, getArticles } from '../utils/query';
+import { getArticles } from '../utils/query';
 
 export default ({
   data,
   pathContext: { tag, page, articlesPerPage, totalArticles },
 }) => {
-  const articles = getArticles(getMeta(data), data);
+  const articles = getArticles(data);
   return (
     <TagPage
       tag={tag}

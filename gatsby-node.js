@@ -1,3 +1,5 @@
+const StatsPlugin = require('stats-webpack-plugin');
+
 const createNodeFields = require('./tools/create-node-fields');
 const createPages = require('./tools/create-pages');
 const createHome = require('./tools/create-home');
@@ -15,4 +17,17 @@ exports.createPages = (params) => {
     createHome(params),
     createTags(params),
   ]);
+};
+
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  config.plugin('stats', StatsPlugin, [
+    '../webpack-stats.json',
+    {
+      chunkModules: true,
+      exclude: [/node_modules[\\\/]react/],
+      profile: true,
+    },
+  ]);
+
+  return config;
 };

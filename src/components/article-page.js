@@ -6,7 +6,7 @@ import Facebook from '../assets/facebook.svg';
 import GooglePlus from '../assets/google-plus.svg';
 
 const ArticleHeader = ({ article }) => (
-  <div className="page__meta">
+  <section className="page__meta">
     <div className="page__info">
       <img
         className="page__author-avatar"
@@ -49,11 +49,11 @@ const ArticleHeader = ({ article }) => (
         <GooglePlus />
       </a>
     </div>
-  </div>
+  </section>
 );
 
 const ArticleFooter = ({ article }) => (
-  <div className="page__meta">
+  <section className="page__meta">
     <div className="page__tags">
       {article.tags.map((tag) => (
         <Link className="page__tag" key={tag.slug} to={`/tags/${tag.slug}`}>
@@ -85,15 +85,31 @@ const ArticleFooter = ({ article }) => (
         <GooglePlus />
       </a>
     </div>
-  </div>
+  </section>
+);
+
+const Related = ({ related }) => (
+  <section className="page__section">
+    <h1 className="page__section__title">Related</h1>
+    <ul className="page__related">
+      {related.map((a) => (
+        <li>
+          <Link to={a.slug}>{a.title}</Link>
+        </li>
+      ))}
+    </ul>
+  </section>
 );
 
 const ArticlePage = ({ article }) => (
   <div className="page page--narrow">
-    <h1 className="page__title">{article.title}</h1>
-    <ArticleHeader article={article} />
-    <span dangerouslySetInnerHTML={{ __html: article.html }} />
-    <ArticleFooter article={article} />
+    <article>
+      <h1 className="page__title">{article.title}</h1>
+      <ArticleHeader article={article} />
+      <span dangerouslySetInnerHTML={{ __html: article.html }} />
+      <ArticleFooter article={article} />
+    </article>
+    <Related related={article.related} />
   </div>
 );
 

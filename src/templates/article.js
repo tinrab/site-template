@@ -9,7 +9,7 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query ArticleQuery($slug: String!) {
+  query ArticleQuery($slug: String!, $tags: [String]!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
@@ -22,26 +22,34 @@ export const query = graphql`
           }
         }
       }
-      tableOfContents
       html
       fields {
         slug
         date(formatString: "DD MMMM, YYYY")
         author {
           name
-          email
-          bio
-          social {
-            twitter
-            github
-            facebook
-            googlePlus
-          }
           emailHash
         }
         tags {
           slug
           name
+        }
+      }
+    }
+    related: allMarkdownRemark(
+      filter: {
+        fields: { type: { eq: "article" } }
+        frontmatter: { tags: { in: $tags } }
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
         }
       }
     }

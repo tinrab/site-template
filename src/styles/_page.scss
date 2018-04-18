@@ -8,8 +8,32 @@
   }
 
   &__title {
-    @extend .display-4;
+    @extend .display-1;
     margin-top: 0;
+  }
+
+  &__meta {
+    display: flex;
+    margin-bottom: $paragraph-margin-bottom / 2;
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+  }
+
+  &__section {
+    @extend .pt-3;
+
+    &__title {
+      @extend .display-2;
+      margin-top: 0;
+    }
+  }
+
+  &__related {
+    list-style: none;
+    text-align: center;
+    font-size: 1.5rem;
   }
 
   &__entries {
@@ -29,15 +53,6 @@
   &__note {
     @extend .alert;
     @extend .alert-success;
-  }
-
-  &__meta {
-    display: flex;
-    margin-bottom: $paragraph-margin-bottom / 2;
-
-    @include media-breakpoint-down(sm) {
-      flex-direction: column;
-    }
   }
 
   &__info {

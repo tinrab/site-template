@@ -17,6 +17,9 @@ module.exports = (params) => {
               fields {
                 type
                 slug
+                tags {
+                  name
+                }
               }
             }
           }
@@ -29,12 +32,22 @@ module.exports = (params) => {
         }
 
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-          createPage({
-            path: node.fields.slug,
-            component:
-              node.fields.type === 'article' ? articleTemplate : pageTemplate,
-            context: { slug: node.fields.slug },
-          });
+          if (node.fields.type == 'article') {
+            createPage({
+              path: node.fields.slug,
+              component: articleTemplate,
+              context: {
+                slug: node.fields.slug,
+                tags: node.fields.tags.map((tag) => tag.name),
+              },
+            });
+          } else {
+            createPage({
+              path: node.fields.slug,
+              component: pageTemplate,
+              context: { slug: node.fields.slug },
+            });
+          }
         });
         return resolve();
       })

@@ -1,23 +1,11 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
+import _ from '../utils/helpers';
+
 const Pagination = ({ page, articlesPerPage, totalArticles, basePath }) => {
   const pageCount = Math.ceil(totalArticles / articlesPerPage);
   basePath = basePath || '';
-
-  let pages = [];
-  for (let i = 1; i <= pageCount; i++) {
-    pages.push(
-      <li className={'pagination__item ' + (i == page ? 'active' : '')} key={i}>
-        <Link
-          className="pagination__link"
-          to={i == 1 ? basePath || '/' : `${basePath}/page/${i}`}
-        >
-          {i}
-        </Link>
-      </li>,
-    );
-  }
 
   return (
     <nav>
@@ -36,7 +24,19 @@ const Pagination = ({ page, articlesPerPage, totalArticles, basePath }) => {
           ) : null}
         </li>
 
-        {pages}
+        {_.forRange(1, pageCount + 1, (i) => (
+          <li
+            className={'pagination__item ' + (i == page ? 'active' : '')}
+            key={i}
+          >
+            <Link
+              className="pagination__link"
+              to={i == 1 ? basePath || '/' : `${basePath}/page/${i}`}
+            >
+              {i}
+            </Link>
+          </li>
+        ))}
 
         <li
           className={
