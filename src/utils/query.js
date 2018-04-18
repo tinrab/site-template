@@ -21,16 +21,24 @@ const getRelated = (data) =>
 
 export const getArticle = (data) => {
   const meta = getMeta(data);
-  return {
+  const article = {
     ...data.markdownRemark,
     ...data.markdownRemark.frontmatter,
     ...data.markdownRemark.fields,
-    coverUrl:
-      meta.site.siteUrl +
-      data.markdownRemark.frontmatter.cover.childImageSharp.original.src,
     permalink: `${meta.site.siteUrl}/${data.markdownRemark.fields.slug}`,
-    related: getRelated(data),
   };
+
+  if (data.markdownRemark.frontmatter.cover) {
+    article.coverUrl =
+      meta.site.siteUrl +
+      data.markdownRemark.frontmatter.cover.childImageSharp.original.src;
+  }
+
+  if (data.related) {
+    article.related = getRelated(data);
+  }
+
+  return article;
 };
 
 export const getGeneralPage = (data) => {
@@ -44,13 +52,7 @@ export const getGeneralPage = (data) => {
 };
 
 export const getArticles = (data) => {
-  const meta = getMeta(data);
-  return data.allMarkdownRemark.edges.map(({ node }) => ({
-    ...node,
-    ...node.frontmatter,
-    ...node.fields,
-    coverUrl:
-      meta.site.siteUrl + node.frontmatter.cover.childImageSharp.original.src,
-    permalink: `${meta.site.siteUrl}/${node.fields.slug}`,
-  }));
+  return data.allMarkdownRemark.edges.map(({ node }) => {
+    return getArticle({ site: data.site, markdownRemark: node });
+  });
 };

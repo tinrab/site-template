@@ -93,7 +93,7 @@ const Related = ({ related }) => (
     <h1 className="page__section__title">Related</h1>
     <ul className="page__related">
       {related.map((a) => (
-        <li>
+        <li key={a.slug}>
           <Link to={a.slug}>{a.title}</Link>
         </li>
       ))}

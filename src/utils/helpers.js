@@ -1,5 +1,5 @@
 const forRange = (start, end, cb) =>
-  Array(end - start + 1)
+  Array(end - start)
     .fill()
     .map((_, i) => cb(start + i));
 

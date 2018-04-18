@@ -28,6 +28,7 @@ export const query = graphql`
         date(formatString: "DD MMMM, YYYY")
         author {
           name
+          slug
           emailHash
         }
         tags {

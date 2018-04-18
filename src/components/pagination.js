@@ -11,17 +11,15 @@ const Pagination = ({ page, articlesPerPage, totalArticles, basePath }) => {
     <nav>
       <ul className="pagination">
         <li className={'pagination__item ' + (page == 1 ? 'disabled' : '')}>
-          {page != 1 ? (
+          {page != 1 && (
             <Link
               className="pagination__link"
               to={page == 2 ? basePath || '/' : `${basePath}/page/${page - 1}`}
             >
               Previous
             </Link>
-          ) : null}
-          {page == 1 ? (
-            <span className="pagination__link">Previous</span>
-          ) : null}
+          )}
+          {page == 1 && <span className="pagination__link">Previous</span>}
         </li>
 
         {_.forRange(1, pageCount + 1, (i) => (
@@ -43,17 +41,15 @@ const Pagination = ({ page, articlesPerPage, totalArticles, basePath }) => {
             'pagination__item ' + (page == pageCount ? 'disabled' : '')
           }
         >
-          {page != pageCount ? (
+          {page != pageCount && (
             <Link
               className="pagination__link"
               to={`${basePath}/page/${page + 1}`}
             >
               Next
             </Link>
-          ) : null}
-          {page == pageCount ? (
-            <span className="pagination__link">Next</span>
-          ) : null}
+          )}
+          {page == pageCount && <span className="pagination__link">Next</span>}
         </li>
       </ul>
     </nav>
