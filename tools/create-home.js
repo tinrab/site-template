@@ -37,7 +37,7 @@ module.exports = (params) => {
         let page = 1;
         for (let i = 0; i < articles.totalCount; i += articlesPerPage, page++) {
           createPage({
-            path: page === 1 ? '/' : `/page/${page}`,
+            path: page == 1 ? '/' : `/page/${page}`,
             component: homeTemplate,
             context: {
               page,

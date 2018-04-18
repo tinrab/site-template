@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 const Pagination = ({ page, articlesPerPage, totalArticles, basePath }) => {
-  const pageCount = Math.ceil(totalArticles / articlesPerPage + 1);
+  const pageCount = Math.ceil(totalArticles / articlesPerPage);
   basePath = basePath || '';
 
   let pages = [];

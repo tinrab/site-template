@@ -1,16 +1,11 @@
 import React from 'react';
 
+import { getArticle } from '../utils/query';
+import ArticlePage from '../components/article-page';
+
 export default ({ data }) => {
-  data = {
-    ...data.markdownRemark,
-    ...data.markdownRemark.frontmatter,
-    ...data.markdownRemark.fields,
-  };
-  return (
-    <div>
-      <div dangerouslySetInnerHTML={{ __html: data.html }} />
-    </div>
-  );
+  const article = getArticle(data);
+  return <ArticlePage article={article} />;
 };
 
 export const query = graphql`

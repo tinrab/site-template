@@ -4,12 +4,12 @@ import Link from 'gatsby-link';
 const Entry = ({ article }) => (
   <div className="entry">
     <div className="entry__content">
-      <Link to={article.slug} className="entry__image">
+      <Link to={'/' + article.slug} className="entry__image">
         <img src={article.coverUrl} alt={article.title} />
       </Link>
 
       <div className="entry__body">
-        <Link to={article.slug}>
+        <Link to={'/' + article.slug}>
           <h3 className="entry__title">{article.title}</h3>
         </Link>
         <div className="entry__info">
