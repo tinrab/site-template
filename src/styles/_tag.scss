@@ -1,0 +1,5 @@
+.tag {
+  @extend .button;
+  @extend .button--dark;
+  @extend .button--sm;
+}

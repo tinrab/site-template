@@ -1,7 +1,10 @@
 .pagination {
   @extend .pagination;
-  @extend .justify-content-center;
-  @extend .py-2;
+  margin: 0;
+
+  &--center {
+    @extend .justify-content-center;
+  }
 
   &__item {
     @extend .page-item;

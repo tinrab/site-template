@@ -37,6 +37,12 @@ const plugins = [
       path: path.resolve('./data/'),
     },
   },
+  {
+    resolve: 'gatsby-plugin-google-fonts',
+    options: {
+      fonts: ['Roboto:300,400,700', 'Source+Code+Pro'],
+    },
+  },
   'gatsby-plugin-sass',
   'gatsby-plugin-react-svg',
   'gatsby-plugin-react-helmet',

@@ -10,12 +10,13 @@ const HomePage = ({ articles, page, articlesPerPage, totalArticles }) => (
         <Entry article={article} key={article.slug} />
       ))}
     </div>
-    <Pagination
-      className="page__pagination"
-      page={page}
-      articlesPerPage={articlesPerPage}
-      totalArticles={totalArticles}
-    />
+    <nav className="page__pagination">
+      <Pagination
+        page={page}
+        articlesPerPage={articlesPerPage}
+        totalArticles={totalArticles}
+      />
+    </nav>
   </div>
 );
 

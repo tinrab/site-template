@@ -4,12 +4,15 @@
   @extend .py-md-5;
 
   &--narrow {
-    max-width: 720px;
+    max-width: 840px;
+
+    @include media-breakpoint-down(lg) {
+      max-width: 720px;
+    }
   }
 
   &__title {
     @extend .display-1;
-    margin-top: 0;
   }
 
   &__meta {
@@ -26,7 +29,6 @@
 
     &__title {
       @extend .display-2;
-      margin-top: 0;
     }
   }
 
@@ -42,6 +44,7 @@
 
   &__pagination {
     @extend .pt-3;
+    @extend .justify-content-center;
   }
 
   &__image {
@@ -91,6 +94,7 @@
   &__share {
     display: flex;
     margin-left: auto;
+    align-items: center;
 
     .button {
       margin-left: 0.5rem;
@@ -107,17 +111,13 @@
 
   &__tags {
     display: flex;
-    flex-direction: row;
     align-items: center;
-  }
+    flex-wrap: wrap;
 
-  &__tag {
-    @extend .badge;
-    @extend .badge-dark;
-
-    font-weight: 400;
-    font-size: 1rem;
-    margin-right: 0.25rem;
-    margin-bottom: 0.25rem;
+    .tag {
+      margin-right: 0.3rem;
+      margin-bottom: 0.3rem;
+      align-self: last baseline;
+    }
   }
 }

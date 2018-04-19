@@ -1,10 +1,27 @@
 .button {
   @extend .btn;
 
-  &--primary {
-    @extend .btn-primary;
+  // Alternate
+
+  @each $color, $value in $theme-colors {
+    &--#{$color} {
+      @include button-variant($value, $value);
+    }
   }
 
+  @each $color, $value in $theme-colors {
+    &--outline-#{$color} {
+      @include button-outline-variant($value);
+    }
+  }
+
+  // Link
+
+  &--link {
+    @extend .btn-link;
+  }
+
+  // Icon
   &--icon {
     display: flex;
     justify-content: center;
@@ -21,6 +38,24 @@
     }
   }
 
+  // Block
+
+  &--block {
+    @extend .btn-block;
+  }
+
+  // Sizes
+
+  &--lg {
+    @extend .btn-lg;
+  }
+
+  &--sm {
+    @extend .btn-sm;
+  }
+
+  // Social
+
   &--twitter {
     @include button-variant(#00aced, #00aced);
   }
@@ -31,5 +66,9 @@
 
   &--facebook {
     @include button-variant(#3b5998, #3b5998);
+  }
+
+  &--github {
+    @include button-variant(#212121, #212121);
   }
 }

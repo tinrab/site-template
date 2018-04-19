@@ -5,11 +5,14 @@
 @import "reset";
 @import "code";
 
-// Components
-@import "page";
-@import "author";
+// Elements
+@import "button";
 @import "pagination";
+@import "tag";
+
+// Blocks
+@import "page";
 @import "header";
 @import "footer";
+@import "author";
 @import "entry";
-@import "button";

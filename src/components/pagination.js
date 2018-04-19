@@ -8,51 +8,47 @@ const Pagination = ({ page, articlesPerPage, totalArticles, basePath }) => {
   basePath = basePath || '';
 
   return (
-    <nav>
-      <ul className="pagination">
-        <li className={'pagination__item ' + (page == 1 ? 'disabled' : '')}>
-          {page != 1 && (
-            <Link
-              className="pagination__link"
-              to={page == 2 ? basePath || '/' : `${basePath}/page/${page - 1}`}
-            >
-              Previous
-            </Link>
-          )}
-          {page == 1 && <span className="pagination__link">Previous</span>}
-        </li>
-
-        {_.forRange(1, pageCount + 1, (i) => (
-          <li
-            className={'pagination__item ' + (i == page ? 'active' : '')}
-            key={i}
+    <ul className="pagination pagination--center">
+      <li className={'pagination__item ' + (page == 1 ? 'disabled' : '')}>
+        {page != 1 && (
+          <Link
+            className="pagination__link"
+            to={page == 2 ? basePath || '/' : `${basePath}/page/${page - 1}`}
           >
-            <Link
-              className="pagination__link"
-              to={i == 1 ? basePath || '/' : `${basePath}/page/${i}`}
-            >
-              {i}
-            </Link>
-          </li>
-        ))}
+            Previous
+          </Link>
+        )}
+        {page == 1 && <span className="pagination__link">Previous</span>}
+      </li>
 
+      {_.forRange(1, pageCount + 1, (i) => (
         <li
-          className={
-            'pagination__item ' + (page == pageCount ? 'disabled' : '')
-          }
+          className={'pagination__item ' + (i == page ? 'active' : '')}
+          key={i}
         >
-          {page != pageCount && (
-            <Link
-              className="pagination__link"
-              to={`${basePath}/page/${page + 1}`}
-            >
-              Next
-            </Link>
-          )}
-          {page == pageCount && <span className="pagination__link">Next</span>}
+          <Link
+            className="pagination__link"
+            to={i == 1 ? basePath || '/' : `${basePath}/page/${i}`}
+          >
+            {i}
+          </Link>
         </li>
-      </ul>
-    </nav>
+      ))}
+
+      <li
+        className={'pagination__item ' + (page == pageCount ? 'disabled' : '')}
+      >
+        {page != pageCount && (
+          <Link
+            className="pagination__link"
+            to={`${basePath}/page/${page + 1}`}
+          >
+            Next
+          </Link>
+        )}
+        {page == pageCount && <span className="pagination__link">Next</span>}
+      </li>
+    </ul>
   );
 };
 

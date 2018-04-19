@@ -56,7 +56,7 @@ const ArticleFooter = ({ article }) => (
   <section className="page__meta">
     <div className="page__tags">
       {article.tags.map((tag) => (
-        <Link className="page__tag" key={tag.slug} to={`/tags/${tag.slug}`}>
+        <Link className="tag" key={tag.slug} to={`/tags/${tag.slug}`}>
           {tag.name}
         </Link>
       ))}

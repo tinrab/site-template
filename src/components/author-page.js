@@ -21,34 +21,34 @@ const Info = ({ author }) => (
     <div className="author__social">
       {author.social.twitter && (
         <a
-          className="author__social-link"
+          className="button button--icon button--twitter"
           href={`https://twitter.com/${author.social.twitter}`}
         >
-          <Twitter className="author__social-icon" />
+          <Twitter />
         </a>
       )}
       {author.social.github && (
         <a
-          className="author__social-link"
+          className="button button--icon button--github"
           href={`https://github.com/${author.social.github}`}
         >
-          <GitHub className="author__social-icon" />
+          <GitHub />
         </a>
       )}
       {author.social.facebook && (
         <a
-          className="author__social-link"
+          className="button button--icon button--facebook"
           href={`https://www.facebook.com/${author.social.facebook}`}
         >
-          <Facebook className="author__social-icon" />
+          <Facebook />
         </a>
       )}
       {author.social.googlePlus && (
         <a
-          className="author__social-link"
+          className="button button--icon button--google-plus"
           href={`https://plus.google.com/${author.social.googlePlus}`}
         >
-          <GooglePlus className="author__social-icon" />
+          <GooglePlus />
         </a>
       )}
     </div>
